@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-"""
+r"""
 Day5 · 作业①/④：labelimg XML → YOLO detect TXT + 数据集划分
 
 对应讲义 D:\Day5_样本标注_数据预处理_模型训练.pptx slide 19 的"参考实现"，
@@ -120,19 +120,23 @@ def split_train_val(items: List, train_ratio: float, seed: int) -> Tuple[List, L
     rng = random.Random(seed)
     items = list(items)
     rng.shuffle(items)
-    n_train = max(1, int(len(items) * train_ratio))
-    if n_train >= len(items):
-        n_train = len(items) - 1
+    n = len(items)
+    if n <= 0:
+        return [], []
+    n_train = max(1, int(round(n * train_ratio)))
+    # 保证 val 至少 1 个（样本 >= 2 时），否则全进 train
+    if n_train >= n and n > 1:
+        n_train = n - 1
+    elif n == 1:
+        n_train = 1  # 只有 1 个样本时全作训练集
     return items[:n_train], items[n_train:]
 
 
 def safe_link_or_copy(src: Path, dst: Path) -> None:
-    try:
-        if dst.exists():
-            dst.unlink()
-        dst.symlink_to(src.resolve())
-    except (OSError, NotImplementedError):
-        shutil.copy2(src, dst)
+    """把图片拷入 split 目录。Windows 无开发者模式时 symlink 不可靠，直接 copy 最稳。"""
+    if dst.exists() or dst.is_symlink():
+        dst.unlink()  # 清理可能残留的坏链接/旧文件
+    shutil.copy2(src, dst)
 
 
 def write_yaml(save_dir: Path, label_to_id: Dict[str, int], task: str = "detect") -> None:

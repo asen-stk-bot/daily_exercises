@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-"""
+r"""
 Day4 · 作业③：皮带边缘分割识别脚本
 
 对应讲义 D:\Day4_人工智能与神经网络.pptx 第 13 页作业第 3 项：
