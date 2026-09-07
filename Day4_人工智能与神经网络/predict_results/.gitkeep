@@ -1,0 +1,8 @@
+# Day4 · 作业③ 皮带识别结果输出目录
+
+实际运行 `03_belt_predict.py` 时，本目录会收到：
+
+- `report.txt`：每张图的检出数 / 置信度 / bbox 汇总
+- 通过 `--save_dir` 软链接到 `runs/segment/predict_belt/` 的可视化图（实际原图仍在 `runs/` 下）
+
+由于 `.gitignore` 在仓库根目录忽略了 `runs/`，本目录目前只放报告与汇总，结果图直接以 `runs/segment/predict_belt/*.jpg` 单独提交。

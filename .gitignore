@@ -21,3 +21,17 @@ env/
 # === 系统 ===
 .DS_Store
 Thumbs.db
+
+# === YOLO / 深度学习相关 ===
+runs/                       # yolo train 训练过程输出
+predict_results/            # Day4 皮带预测输出目录（实际跑出来时由脚本生成）
+*.pt                        # 模型权重文件
+*.onnx
+datasets/                   # 数据集本体（只保留 yaml 配置，不上传图片/标注）
+belt_shift_split*/
+*_split*/
+split*/
+
+# 训练临时文件
+*.log
+wandb/

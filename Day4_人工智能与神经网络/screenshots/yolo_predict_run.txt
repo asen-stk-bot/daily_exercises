@@ -1,0 +1,7 @@
+Ultralytics 8.4.137  Python-3.13.14 torch-2.13.0+cpu CPU (13th Gen Intel Core i7-13650HX)
+YOLO11n summary (fused): 100 layers, 2,616,248 parameters, 0 gradients, 6.5 GFLOPs
+
+image 1/1 C:\Users\\AppData\Local\Temp\yolo_test\bus.jpg: 640x480 4 persons, 1 bus, 54.7ms
+Speed: 2.2ms preprocess, 54.7ms inference, 1.1ms postprocess per image at shape (1, 3, 640, 480)
+Results saved to [1mC:\Users\\AppData\Local\Temp\yolo_test\runs\detect\predict-2[0m
+ Learn more at https://docs.ultralytics.com/modes/predict

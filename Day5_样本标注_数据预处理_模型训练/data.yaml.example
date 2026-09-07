@@ -1,0 +1,55 @@
+# YOLO 数据集配置示例
+# 实际使用时由 01_label2yoloseg.py / 02_samplesplit.py 自动生成；
+# 这里只作为格式参考（PPT slide 16）。
+
+# path:  数据集根目录绝对路径
+# train: 训练集图片目录（相对 path）
+# val:   验证集图片目录（相对 path）
+# test:  测试集目录（可留空）
+
+path: D:\belt_shift_split1
+train: train/images
+val:   val/images
+test:  ''
+
+# 类别定义：id 必须从 0 开始连续编号，与标签 .txt 第一列对应
+names:
+  0: belt
+
+# ---- 多类别示例（PPT slide 19 风格，安全帽组） ----
+# path: D:\helmet_split1
+# train: train/images
+# val:   val/images
+#
+# names:
+#   0: wear
+#   1: nowear
+
+# ---- 烟火组（4 类） ----
+# path: D:\smoke_fire_split1
+# train: train/images
+# val:   val/images
+#
+# names:
+#   0: smoke
+#   1: fireworks
+
+# ---- 异物组（4 类） ----
+# path: D:\foreign_object_split1
+# train: train/images
+# val:   val/images
+#
+# names:
+#   0: nest
+#   1: plastic
+#   2: kite
+#   3: ballon
+
+# ---- 工程车组（2 类） ----
+# path: D:\vehicle_split1
+# train: train/images
+# val:   val/images
+#
+# names:
+#   0: crane
+#   1: towercrane
